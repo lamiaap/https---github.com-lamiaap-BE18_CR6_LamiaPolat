@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<header>
+    
+    <div
+      class="p-5 text-center bg-image"
+      style="
+        background-image:url(https://i.vimeocdn.com/video/1510308669-a69a87c21ee4ceb9f9c9857ec606ee44b2dec8893c2cd7908e6df418184d0d62-d_640);
+        height: 400px;
+      "
+    >
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+
+<a class="btn btn-info" href="{{ path('app_test_new') }}">Create new</a>
+
+	<div class="container">
+		<div class="row row-cols-3">
+			{% for test in tests %}
+				<div class="card" style="width: 18rem;">
+					<img src="https://www.eventlounge.be/wp-content/uploads/2021/02/01_3.jpg" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{test.id}}</h5>
+						<p class="card-text">{{ test.name }},{{ test.date ? test.date|date('Y-m-d H:i:s') : '' }},{{ test.description }},{{ test.image }},{{ test.Capacity }},{{ test.contact }},{{ test.phone }},{{ test.address }},{{ test.url }},{{ test.Type }}</p>
+						<a class="btn btn-success" href="{{ path('app_test_show', {'id': test.id}) }}">show</a>
+					<a class="btn btn-warning " href="{{ path('app_test_edit', {'id': test.id}) }}">edit</a>
+					</div>
+				</div>
+
+
+		{% else %}
+
+
+	{% endfor %}
+
+	
+{% endblock %}
+
